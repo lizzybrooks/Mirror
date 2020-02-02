@@ -2,7 +2,7 @@ let flypic;
 let flysentence = "The shadow of a fly"
 let s;
 
-let mirro;
+let mirror;
 let mirrortext = "In those days, the world of mirrors and our world were not, as they are now, separate and unconnected. They were, moreover, quite different from one another; neither the creatures nor the colors nor the shapes of the two worlds were the same. The two kingdoms— the specular and the human— lived in peace, and one could pass back and forth through mirrors."
 let m;
 
@@ -10,6 +10,9 @@ let dow;
 let sentence1 = "A crack in the ceiling"
 var scribble;
 let goodlook;
+
+let w;
+let h;
 
 function preload() {
   dow = loadImage('windows-8.jpg');
@@ -19,7 +22,23 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  if(windowWidth>windowHeight*(3/2)){
+      w = windowHeight*(3/2)
+  }
+  else if (windowWidth<windowHeight*(3/2)){
+      w=windowWidth
+  }
+
+  if(windowHeight>windowWidth*(2/3)){
+      h = windowWidth*(2/3)
+  }
+  else if (windowHeight<windowWidth*(2/3)){
+      h=windowHeight
+  }
+  print(w);
+  print(h);
+
+  createCanvas(w, h);
   background(250);
   imageMode(CORNERS);
   image(dow,0,0,width/2,height/2);
@@ -36,7 +55,7 @@ function setup() {
   noStroke();
 
   textFont(goodlook);
-  textSize(14);
+  textSize(w/67);
   textAlign(CENTER);
   fill("black");
   text(sentence1,width/6,height/18)
@@ -48,7 +67,7 @@ function draw() {
      image(flypic,width/2,0,width,height/2);
      noStroke();
      textFont(goodlook);
-     textSize(14);
+     textSize(w/60);
      textAlign(CENTER);
      fill("black");
      text(flysentence,width-width/5,height/2-30)
@@ -93,7 +112,7 @@ function draw() {
 if(frameCount >1800 && frameCount <=1801){
     noStroke();
     textFont(goodlook);
-    textSize(20);
+    textSize(w/50);
     textAlign(LEFT);
     fill("black");
     text(mirrortext,width/2+30,height/2+30,width/2-30,height/2-30)
