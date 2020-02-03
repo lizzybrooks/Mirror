@@ -5,6 +5,7 @@ let s;
 let mirror;
 let mirrortext = "In those days, the world of mirrors and our world were not, as they are now, separate and unconnected. They were, moreover, quite different from one another; neither the creatures nor the colors nor the shapes of the two worlds were the same. The two kingdoms— the specular and the human— lived in peace, and one could pass back and forth through mirrors."
 let m;
+let credits = "most of the text by Borges"
 
 let dow;
 let sentence1 = "A crack in the ceiling"
@@ -116,6 +117,8 @@ if(frameCount >1800 && frameCount <=1801){
     textAlign(LEFT);
     fill("black");
     text(mirrortext,width/2+30,height/2+30,width/2-30,height/2-30)
+    textSize(w/100)
+    text(credits,width-100,height-30)
 }
 
 
